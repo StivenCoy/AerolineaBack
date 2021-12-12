@@ -7,7 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.ManyToAny;
 
 	@Entity
 	@Table(name = "reserva")
@@ -18,6 +22,7 @@ import javax.persistence.Table;
 		 */
 		private static final long serialVersionUID = 742544134767197245L;
 	
+		
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		@Column(nullable = false, name="idreserva")
@@ -26,10 +31,13 @@ import javax.persistence.Table;
 		@Column(nullable = false, name="estado")
 		private String estado;
 		
-		@Column(nullable = false, name="idvueloida")
+		
+		@ManyToOne
+		@JoinColumn(name = "idvueloida", referencedColumnName = "idvuelo")
 		private Vuelo idvueloida;
 		
-		@Column(nullable = false, name="idvuelovuelta")
+		@ManyToOne
+		@JoinColumn(name = "idvuelovuelta", referencedColumnName = "idvuelo")
 		private Vuelo idvuelovuelta;
 
 		public int getIdreserva() {

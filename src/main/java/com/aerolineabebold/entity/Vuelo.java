@@ -25,14 +25,14 @@ public class Vuelo implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable = false, name="idvuelo")
-	private Vuelo idvuelo ;
+	private int idvuelo ;
 	
 	@Column(nullable = false, name="fecha")
 	@DateTimeFormat(pattern="%Y-%m-%d")
 	private Date fecha;
 	
 	@Column(nullable = false, name="escala")
-	private Boolean escala;
+	private boolean escala;
 	
 	@Column(nullable = false, name="preciopersona")
 	private Double preciopresona;
@@ -53,7 +53,7 @@ public class Vuelo implements Serializable {
 	@JoinColumn(name = "idruta", referencedColumnName = "idruta")
 	private Ruta idruta ;
 
-	public Vuelo getIdvuelo() {
+	public int getIdvuelo() {
 		return idvuelo;
 	}
 
@@ -65,7 +65,7 @@ public class Vuelo implements Serializable {
 		this.hora = hora;
 	}
 
-	public void setIdvuelo(Vuelo idvuelo) {
+	public void setIdvuelo(int idvuelo) {
 		this.idvuelo = idvuelo;
 	}
 

@@ -11,6 +11,7 @@ import com.aerolineabebold.entity.Registro;
 
 	@Repository
 	public interface RegistroRepository  extends JpaRepository<Registro, Integer> {
-		@Query(value = "select cantidadviajes,cantidadmillas from registro where idpasajero=(:idpasajero)", nativeQuery=true)
+		
+		@Query(value = "select cantidadviajes,cantidadmillas,idregistro from registro where idpasajero=(:idpasajero)", nativeQuery=true)
 		List<Object[]> historial(int idpasajero);
 	}

@@ -25,6 +25,18 @@ public class Registro implements Serializable {
 	@Column(nullable = false, name="cantidadmillas")
 	private double cantidadmillas;
 	
+	@Column(nullable = false, name="cantidadviajes")
+	private int cantidadviajes;
+	
+	
+	public int getCantidadviajes() {
+		return cantidadviajes;
+	}
+
+	public void setCantidadviajes(int cantidadviajes) {
+		this.cantidadviajes = cantidadviajes;
+	}
+
 	@ManyToOne
 	@JoinColumn(name = "idpasajero", referencedColumnName = "idpasajero")
 	private Pasajero idpasajero;

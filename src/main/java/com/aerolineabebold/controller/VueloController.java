@@ -1,10 +1,10 @@
 package com.aerolineabebold.controller;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,24 +20,23 @@ import com.aerolineabebold.service.VueloService;
 	
 		@Autowired
 		private VueloService vueloService;
-		//@DateTimeFormat(pattern="yyyy-mm-dd")
-		@GetMapping("/destinosO")
+		
+		/**
+		 * Metodo que lista los vuelos dado un origen un destino una fecha y la cantidad de viajeros
+		 * @param fecha fecha del vuelo
+		 * @param origen ciudad origen 
+		 * @param destino ciudad destino
+		 * @param cantidad cantidad de viajeros
+		 * @return retorna una lista con todos los vuelos
+		 */
+		@GetMapping("/destinos/")
 		public ResponseEntity<?> buscarV(
-				@RequestParam(value="fecha")  String fecha,
+				@RequestParam(value="fecha") @DateTimeFormat( pattern ="yyyy-MM-dd" ) Date fecha,
 				@RequestParam(value="origen", required = false) String origen,
 				@RequestParam(value="destino",required = false) String destino,
 				@RequestParam(value="cantidad",required = false) int cantidad){
-			Date fe=null;
-			System.out.println(fecha);
-			try {
-				System.out.println("hola");
-				SimpleDateFormat fes= new SimpleDateFormat("yyyy-MM-dd");
-				fe=fes.parse(fecha);
-			} catch (Exception e) {
-				// TODO: handle exception
-			}
-			System.out.println(fe);
-			List<Object[]> miOptional = vueloService.ciudadesOrigen(origen, destino, fe, cantidad);
+			System.out.println(origen+ " "+ destino+" "+ fecha+" "+ cantidad );
+			List<Object[]> miOptional = vueloService.ciudadesOrigen(origen, destino, fecha, cantidad);
 			if(miOptional.isEmpty()){
 				return ResponseEntity.notFound().build();
 			}

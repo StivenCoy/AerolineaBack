@@ -21,6 +21,11 @@ import com.aerolineabebold.service.RutaService;
 		@Autowired
 		private RutaService rutaService;
 		
+		/**
+		 * Metodo que lista los nombres de los destinos dado un origen
+		 * @param nombre nombre de la ciudad origen 
+		 * @return retorna la lista con los nombres de los destinos
+		 */
 		@GetMapping("/destinos/{nombre}")
 		public ResponseEntity<?> buscarD(@PathVariable(value ="nombre") String nombre){
 			List<String> miOptional = rutaService.ciudadesDestino(nombre);

@@ -22,9 +22,9 @@ public class CiudadDestino implements Serializable {
 	
 	@Column(nullable = false, name="nombre")
 	private String nombre;
-	
-	@Column(nullable = false, name="visa")
-	private boolean visa;
+
+	@Column(name="visa")
+	private String visa;
 
 	public int getIdciudaddestino() {
 		return idciudaddestino;
@@ -42,11 +42,11 @@ public class CiudadDestino implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public boolean isVisa() {
+	public String isVisa() {
 		return visa;
 	}
 
-	public void setVisa(boolean visa) {
+	public void setVisa(String visa) {
 		this.visa = visa;
 	}
 	

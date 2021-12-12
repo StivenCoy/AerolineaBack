@@ -19,6 +19,10 @@ public class CiudadOrigenController {
 	@Autowired
 	public CiudadOrigenService ciudadOrigenService;
 	
+	/**
+	 * metodo que busca las ciudades origenes
+	 * @return retorna los nombres de las ciudades 
+	 */
 	@GetMapping("/origen")
 	public ResponseEntity<?> listarOrigenes(){
 		List<String> miOptional = (List<String>)ciudadOrigenService.ciudadesOrigen();
