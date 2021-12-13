@@ -1,0 +1,301 @@
+{
+	"info": {
+		"_postman_id": "ad922a72-6e40-4fcb-918d-45562d472e22",
+		"name": "Aerolinea",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/api/ciudad/origen",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/ciudad/origen",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ciudad",
+						"origen"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/ruta/destinos/Bogota",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/ruta/destinos/Bogota",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ruta",
+						"destinos",
+						"Bogota"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/vuelos/destinos/?fecha=2020-12-10&origen=Bogota&destino=Cali&cantidad=3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/vuelos/destinos/?fecha=2020-12-10&origen=Bogota&destino=Cali&cantidad=3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vuelos",
+						"destinos",
+						""
+					],
+					"query": [
+						{
+							"key": "fecha",
+							"value": "2020-12-10"
+						},
+						{
+							"key": "origen",
+							"value": "Bogota"
+						},
+						{
+							"key": "destino",
+							"value": "Cali"
+						},
+						{
+							"key": "cantidad",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/historial/pasa/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/historial/pasa/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"historial",
+						"pasa",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/reserva/listar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/reserva/listar",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"reserva",
+						"listar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/historial/buscar/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/historial/buscar/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"historial",
+						"buscar",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/pasajero/buscar/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/pasajero/buscar/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"pasajero",
+						"buscar",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/tiquete/crear",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idtiquete\": 9,\r\n    \"totalpago\":\"27800\",\r\n    \"cantidadpersonas\": 2,\r\n    \"idpasajero\": {\r\n        \"idpasajero\": 1\r\n    },\r\n    \"idreserva\": {\r\n        \"idreserva\": 1\r\n    },\r\n    \"idvuelo\": {\r\n        \"idvuelo\": 2,\r\n         \"idruta\": {\r\n            \"idruta\": 2,\r\n            \"idciudadorig\": {\r\n                   \"idciudad\": 2\r\n            },\r\n            \"idciudaddes\": {\r\n                \"idciudaddestino\": 2\r\n            }\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/tiquete/crear",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tiquete",
+						"crear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/reserva/crear",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idreserva\": 9,\r\n    \"estado\": \"proceso\",\r\n    \"idvueloida\": {\r\n        \"idvuelo\": 1,\r\n        \"idruta\": {\r\n            \"idruta\": 1,\r\n            \"idciudadorig\": {\r\n                   \"idciudad\": 1\r\n            },\r\n            \"idciudaddes\": {\r\n                \"idciudaddestino\": 2\r\n            }\r\n        }\r\n    },\r\n    \"idvuelovuelta\": {\r\n        \"idvuelo\": 2,\r\n        \"idruta\": {\r\n            \"idruta\": 2,\r\n            \"idciudadorig\": {\r\n                   \"idciudad\": 2\r\n            },\r\n            \"idciudaddes\": {\r\n                \"idciudaddestino\": 2\r\n            }\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/reserva/crear",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"reserva",
+						"crear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/historial/crear",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idregistro\": 9,\r\n    \"cantidadmillas\": 40,\r\n    \"cantidadviajes\": 1,\r\n    \"idpasajero\": {\r\n        \"idpasajero\":3\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/historial/crear",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"historial",
+						"crear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/vuelos/buscar/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/vuelos/buscar/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vuelos",
+						"buscar",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/historial/buscar/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/historial/buscar/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"historial",
+						"buscar",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
