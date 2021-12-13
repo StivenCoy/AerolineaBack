@@ -46,7 +46,7 @@ public class Vuelo implements Serializable {
 	@Column(nullable = false, name="duracion")
 	private String duracion;
 	
-	@Column(nullable = false, name="hora")
+	@Column( name="hora")
 	private String hora;
 	
 	@ManyToOne

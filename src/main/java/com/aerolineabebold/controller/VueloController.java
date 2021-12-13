@@ -2,15 +2,19 @@ package com.aerolineabebold.controller;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.aerolineabebold.entity.Vuelo;
 import com.aerolineabebold.service.VueloService;
 
 	@RestController
@@ -38,6 +42,15 @@ import com.aerolineabebold.service.VueloService;
 			System.out.println(origen+ " "+ destino+" "+ fecha+" "+ cantidad );
 			List<Object[]> miOptional = vueloService.ciudadesOrigen(origen, destino, fecha, cantidad);
 			if(miOptional.isEmpty()){
+				return ResponseEntity.notFound().build();
+			}
+			return ResponseEntity.ok(miOptional);
+		}
+		
+		@GetMapping("/buscar/{idvuelo}")
+		public ResponseEntity<?> buscar(@PathVariable(value ="idvuelo") Integer idvuelo){
+			Optional<Vuelo> miOptional = vueloService.buscarVuelo(idvuelo);
+			if(!miOptional.isPresent()) {
 				return ResponseEntity.notFound().build();
 			}
 			return ResponseEntity.ok(miOptional);
